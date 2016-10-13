@@ -1,0 +1,79 @@
+
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th>Order</th>
+            <th>Owner</th>
+            <th>File</th>
+            <th>Order Price</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class = "center_cell bold">
+            <td> <%=@order.id %> </td>
+            <td> <%=@order.user.name %> </td>
+            <td> <%=@order.filename %> </td>
+            <td> <%= number_to_currency(@order.price, delimiter:"", separator:",") %> </td>
+            <td> <%=time_ago_in_words(@order.created_at)%> </td>
+        </tr>
+        
+    </tbody>
+</table>
+<br>
+<% if @order.order_item.blank? %>
+<div>
+    <h4>There are no Order Items for this Order!</h4>
+</div>
+<% else %>
+<br>
+<div>
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th>Order Item Id</th>
+            <th>Purchaser Name</th>
+            <th>Item Description</th>
+            <th>Item Price</th>
+            <th>Purchase Count</th>
+            <th>Merchant Address</th>
+            <th>Merchant Name</th>
+            <th>Purchase Price</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% @order.order_item.each do |order_item| %>
+ 			<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+ 				<td class="center_cell">
+ 					<%=order_item.id%>
+ 				</td>
+ 				<td>
+ 				    <%=order_item.purchaser.name %>
+ 				</td>
+ 				<td>
+ 				    <%=order_item.item.description %>
+ 				</td>
+ 				<td class="center_cell">
+                    <%=number_to_currency(order_item.item.price, delimiter:"", separator:",")%>
+ 				</td>
+ 				<td class="center_cell">
+ 				    <%=order_item.quantity %>
+ 				</td>
+ 				<td>
+ 				    <%=order_item.merchant.name %>
+ 				</td>
+ 				<td>
+ 					<%=order_item.merchant.address%>
+ 				</td>
+ 				<td class="center_cell">
+                    <%=number_to_currency(order_item.price, delimiter:"", separator:",")%>
+ 				</td>
+ 		    </tr>
+         <% end %>
+     </tbody>
+ </table>
+</div>
+<% end %>
+<br>
+
+ <%= link_to "Back", root_path %>

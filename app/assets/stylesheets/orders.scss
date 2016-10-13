@@ -1,0 +1,71 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table{
+  	border-collapse: collapse;
+  	
+}
+ 
+table tr td{
+  	padding: 10px;
+  	font-size: 12px
+}
+ 
+thead {
+  	text-align: left;
+  	background: #e1e1e1;
+  	color: #2F363E;
+}
+ 
+thead th {
+  	padding: 10px;
+  	font-size: 15px;
+  	text-align: center;
+}
+
+.align_table{
+	witdth: 1200px !important;
+	padding-left: '5%';
+}
+
+.center_cell{
+	text-align: center;
+}
+
+.bold {
+  font-size: 14px;
+  font-weight: bold;
+}
+ 
+.list_line_even {
+  	background: #FAEBD7;
+}
+ 
+.list_line_odd {
+  	background: #FEFEFA;
+}
+
+#partners li, ul, h2 {
+    display: inline;
+    float: none;
+}
+.inline {
+  float: left; width: 350px;
+  vertical-align: middle;
+}
+
+.send-button{
+  padding-top: 10px; padding-bottom: 10px;
+}
+
+.google_image {
+    display:block;
+    cursor: pointer;
+    width: 250px;
+}
+
+.little-font{
+  font-size: 10px;
+  vertical-align: middle;
+}

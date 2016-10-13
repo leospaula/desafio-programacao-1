@@ -1,0 +1,54 @@
+
+<%= render 'upload' %>
+
+
+<% if @orders.blank? %>
+<div>
+    <h4>There are no Orders to show!</h4>
+</div>
+<% else %>
+<div>
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>Owner</th>
+            <th>File</th>
+            <th>Order Price</th>
+            <th>Created At</th>
+            <th/>
+            <th/>
+        </tr>
+    <tbody>
+        <% @orders.each do |order| %>
+ 			<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+ 				<td class="center_cell">
+ 					<%= order.id %>
+ 				</td>
+ 				<td>
+                    <%=order.user.name%>
+                </td>
+                <td>
+                    <%=order.filename%>
+ 				</td>
+                
+ 				<td class="center_cell">
+ 					<%=number_to_currency(order.price, delimiter:"", separator:",")%>
+ 				</td>
+ 				<td>
+ 					<%=time_ago_in_words(order.created_at)%>
+ 				</td>
+                <td class="center_cell">
+                    <%= link_to 'View', order %>
+                </td>
+ 				<% if current_user == order.user %>
+                    <td class="center_cell">
+ 				       <%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %>
+ 				   </td>
+                <% end %>
+		    </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+<% end %>

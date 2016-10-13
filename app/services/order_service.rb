@@ -14,8 +14,8 @@ class OrderService
                                           address: fitem.to_hash[:merchant_address])
                                           
     price = fitem.to_hash[:item_price].to_f * fitem.to_hash[:purchase_count].to_f
-
-    OrderItem.create!(order: @order, purchaser: purchaser, item: item, merchant: merchant, 
+    
+    OrderItem.create(order: @order, purchaser: purchaser, item: item, merchant: merchant, 
                       price: price, quantity: fitem.to_hash[:purchase_count].to_f)
 
     return price   
