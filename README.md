@@ -1,3 +1,36 @@
+# README
+
+Soluçao para o Desafio de programação 1 desenvolvido por Leonardo S. Paula
+
+Ruby: 2.3
+
+Rails: 5.0.0
+
+Postgres: 0.19
+
+
+## Configurações
+
+Rode o comando:
+
+``` bundle install ```
+
+## Criar o Banco de Dados
+
+``` rake db:create && rake db:migrate ```
+
+## Rodar a Suite de testes
+
+``` rspec ```
+
+## Para rodar a aplicação
+
+``` rails s ```
+
+
+
+
+
 # Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
